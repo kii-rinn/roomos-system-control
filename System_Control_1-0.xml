@@ -1,0 +1,59 @@
+<Extensions>
+  <Version>1.10</Version>
+    <Order>11</Order>
+    <PanelId>system_control</PanelId>
+    <Origin>local</Origin>
+    <Location>HomeScreen</Location>
+    <Icon>Power</Icon>
+    <Color>#D43B52</Color>
+    <Name>System Control</Name>
+    <ActivityType>Custom</ActivityType>
+    <Page>
+      <Name>System Control</Name>
+      <Row>
+        <Name>Row</Name>
+        <Widget>
+          <WidgetId>widget_18</WidgetId>
+          <Name>State</Name>
+          <Type>Text</Type>
+          <Options>size=4;fontSize=normal;align=center</Options>
+        </Widget>
+      </Row>
+      <Row>
+        <Name>Row</Name>
+        <Widget>
+          <WidgetId>system_state_halfwake</WidgetId>
+          <Name>Halfwake</Name>
+          <Type>Button</Type>
+          <Options>size=2</Options>
+        </Widget>
+        <Widget>
+          <WidgetId>system_state_standby</WidgetId>
+          <Name>Standby</Name>
+          <Type>Button</Type>
+          <Options>size=2</Options>
+        </Widget>
+        <Widget>
+          <WidgetId>widget_15</WidgetId>
+          <Name>Power Control</Name>
+          <Type>Text</Type>
+          <Options>size=4;fontSize=normal;align=center</Options>
+        </Widget>
+        <Widget>
+          <WidgetId>power_control_restart</WidgetId>
+          <Name>Restart</Name>
+          <Type>Button</Type>
+          <Options>size=2</Options>
+        </Widget>
+        <Widget>
+          <WidgetId>power_control_shutdown</WidgetId>
+          <Name>Shutdown</Name>
+          <Type>Button</Type>
+          <Options>size=2</Options>
+        </Widget>
+      </Row>
+      <PageId>power_control</PageId>
+      <Options>hideRowNames=1</Options>
+    </Page>
+  </Panel>
+</Extensions>
