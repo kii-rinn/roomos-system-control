@@ -15,15 +15,25 @@
  * 
  * Script Dependencies
  *   - System_Control_1-0.js - Backend
- *   - System_Control_1-0.xml - Fontend
+ *   - System_Control_1-0.xml - Frontend
  ***********************************************/
 
 import xapi from 'xapi';
 
 const confirmationValue = 'confirmation';
 
+const sleep = (timeout) => new Promise((resolve) => {
+  setTimeout(resolve, timeout);
+});
+
 async function initiatePowerControl(powerControlValue) {
   try {
+    await xapi.Command.Standby.Activate(); // The device will go into Standby mode before shutdown
+    console.log('The device go to standby mode before ' + powerControlValue);
+    // Start timer to restart/shutdown process
+    const timeout = 10000; // Milliseconds, equals 10 second
+    console.log('The system gonna ' + systemStateValue + ' in ${timeout / 1000} s!!!');
+    await sleep(timeout);
     await xapi.Command.SystemUnit.Boot( {
       Action: powerControlValue
     } )
@@ -34,8 +44,8 @@ async function initiatePowerControl(powerControlValue) {
 
 async function setSystemState(systemStateValue) {
   try {
-    await xapi.command("Standby " + systemStateValue);
-    //await xapi.Command.Standby.set(systemStateValue);
+    
+    await xapi.command("Standby " + systemStateValue); // Using older format xapi command
   } catch (error) {
       console.error('Not able to set System State with error:' + error);
   }
@@ -77,10 +87,7 @@ function init () {
           var promptText = 'POWER SHUTDOWN';
           getConfirmation(promptText);
           break;
-
-      }
-        
-      
+      }      
     }
   });
 
@@ -107,8 +114,7 @@ function init () {
         }
         break;
     }
-});
-
+  });
 }
 
 init();
