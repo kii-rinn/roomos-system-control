@@ -1,5 +1,6 @@
 <Extensions>
   <Version>1.10</Version>
+  <Panel>
     <Order>11</Order>
     <PanelId>system_control</PanelId>
     <Origin>local</Origin>

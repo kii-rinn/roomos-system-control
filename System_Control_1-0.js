@@ -32,7 +32,7 @@ async function initiatePowerControl(powerControlValue) {
     console.log('The device go to standby mode before ' + powerControlValue);
     // Start timer to restart/shutdown process
     const timeout = 10000; // Milliseconds, equals 10 second
-    console.log('The system gonna ' + systemStateValue + ' in ${timeout / 1000} s!!!');
+    console.log('System ' + powerControlValue + ' in 10s !!!');
     await sleep(timeout);
     await xapi.Command.SystemUnit.Boot( {
       Action: powerControlValue
